@@ -1,0 +1,158 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background: #000 url("/bg.jpeg") no-repeat center center/cover;
+    color: white;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.logo-wrap {
+    margin: 50px;
+}
+
+.link-to-favorites  {
+    background: #336648;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #D3D3D3;
+    margin: 20px;
+    transition: 0.7s ease;
+    cursor: pointer;
+}
+
+.link-to-favorites:hover {
+    background: #D3D3D3	;
+    color: #336648;
+    border: 1px solid #336648;
+}
+
+.btn {
+    background: #336648;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #D3D3D3;
+    transition: 0.7s ease;
+    color: white;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #D3D3D3	;
+    color: #336648;
+    border: 1px solid #336648;
+}
+.input-wrap input {
+    padding: 10px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 5px;
+    margin: auto;
+    outline: none;
+}
+
+.cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 50px;
+    padding: 50px 150px;
+}
+
+.card {
+    cursor: pointer;
+    background-color: transparent;
+    height: 450px;
+    perspective: 1000px;
+}
+
+.card h1 {
+    font-size: 25px;
+    border-bottom: 1px #fff solid;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 2%;
+    object-position: top;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 2%;
+}
+
+.card-back {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list p {
+    list-style: none;
+    padding-bottom: 5px;
+}
+
+@media (max-width: 1100px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 30px;
+        padding: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .card img {
+        width: 100%;
+        height: 450px;
+        object-fit: contain;
+    }
+}
