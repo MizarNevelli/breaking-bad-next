@@ -61,6 +61,7 @@ a {
     transition: 0.7s ease;
     color: white;
     cursor: pointer;
+    margin-top: 10px;
 }
 .btn:hover {
     background: #D3D3D3	;
