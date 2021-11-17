@@ -5,6 +5,8 @@ import Link from 'next/link'
 
 const SearchField = ({ onSearchChange = {}, showTextInput = true, isFavoritePage = false }) => {
 
+    const { resetFavorites = {} } = useContext(CharactersContext)
+
     return (
         <>
             <div className='logo-wrap'>
@@ -14,18 +16,24 @@ const SearchField = ({ onSearchChange = {}, showTextInput = true, isFavoritePage
                     width='350'
                 />
             </div>
-            {!isFavoritePage ?
-                (<Link href="/favorites">
-                    <div className='link-to-favorites'>
-                        Go to Favorites Characters
-                    </div>
-                </Link>) :
-                (<Link href="/">
-                    <div className='link-to-favorites'>
-                        go back to home
-                    </div>
-                </Link>)
-            }
+            <div className='btn-wrap'>
+                {!isFavoritePage ?
+                    (<Link href="/favorites">
+                        <div className='link-to-favorites'>
+                            Go to Favorites Characters
+                        </div>
+                    </Link>) :
+                    (<Link href="/">
+                        <div className='link-to-favorites'>
+                            go back to home
+                        </div>
+                    </Link>)
+                }
+                <div className='link-to-favorites' onClick={resetFavorites}>
+                    Reset Favorites
+                </div>
+            </div>
+
 
             {
                 showTextInput &&

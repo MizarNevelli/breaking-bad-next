@@ -39,12 +39,18 @@ a {
     margin: 20px;
     transition: 0.7s ease;
     cursor: pointer;
+    text-align: center;
+    width: 20vw;
 }
 
 .link-to-favorites:hover {
     background: #D3D3D3	;
     color: #336648;
     border: 1px solid #336648;
+}
+.btn-wrap {
+    display: flex;
+    flex-direction: column;
 }
 
 .btn {
@@ -68,6 +74,9 @@ a {
     border-radius: 5px;
     margin: auto;
     outline: none;
+    width: 20vw;
+    margin: 20px;
+
 }
 
 .cards {

@@ -18,13 +18,18 @@ const CharactersProvider = ({ children }) => {
     setFavoritesChar(favorites)
   };
 
+  const resetFavorites = () => {
+    setFavoritesChar([])
+  }
+
   return (
     <CharactersContext.Provider
       value={{
         items,
         setItems,
         favoritesChar,
-        toggleFavorite
+        toggleFavorite,
+        resetFavorites
       }}
     >
       {children}
