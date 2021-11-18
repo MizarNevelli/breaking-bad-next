@@ -17,7 +17,6 @@ const HomePage = (props) => {
     try {
       const favoritesIds = favoritesChar.map(fav=>fav.char_id)
       const allCharacters = await fetchCharacters(query);
-      console.log('allCharacters', allCharacters)
       //FIX: KEEP THE PREVIOUSLY FAVORITES STATE UP TO DATE WITH ITEMS
       const merged = allCharacters.map((item) => {
         if (favoritesIds.includes(item.char_id)) {
