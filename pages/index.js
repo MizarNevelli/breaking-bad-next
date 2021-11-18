@@ -14,10 +14,19 @@ const HomePage = (props) => {
 
   const updateData = async () => {
     setIsLoading(true)
-    setItems(data)
     try {
-      const refreshData = await fetchCharacters(query);
-      setItems(refreshData)
+      const favoritesIds = favoritesChar.map(fav=>fav.char_id)
+      const allCharacters = await fetchCharacters(query);
+      console.log('allCharacters', allCharacters)
+      //FIX: KEEP THE PREVIOUSLY FAVORITES STATE UP TO DATE WITH ITEMS
+      const merged = allCharacters.map((item) => {
+        if (favoritesIds.includes(item.char_id)) {
+          return { ...item, isFavorite: !item.isFavorite };
+        }
+        return item;
+      });
+
+      setItems(merged)
     } catch (err) {
       throw err
     } finally {
@@ -26,9 +35,12 @@ const HomePage = (props) => {
   }
 
   useEffect(() => {
-    // setItems(data)
     updateData()
   }, [query])
+
+  useEffect(() => {
+    setItems(data)
+  }, [])
 
   const onSearchChange = (value) => {
     setQuery(value)
@@ -48,7 +60,7 @@ const HomePage = (props) => {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
 
   const data = await fetchCharacters()
 

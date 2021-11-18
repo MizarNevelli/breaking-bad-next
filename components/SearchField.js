@@ -30,7 +30,7 @@ const SearchField = ({ onSearchChange = {}, showTextInput = true, isFavoritePage
                     </Link>)
                 }
                 <div className='link-to-favorites' onClick={resetFavorites}>
-                    Reset Favorites
+                    Reset All Favorites
                 </div>
             </div>
 

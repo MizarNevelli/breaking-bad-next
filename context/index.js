@@ -20,6 +20,8 @@ const CharactersProvider = ({ children }) => {
 
   const resetFavorites = () => {
     setFavoritesChar([])
+    items.forEach(item=>item.isFavorite=false)
+    setItems(items)
   }
 
   return (
